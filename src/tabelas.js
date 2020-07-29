@@ -20,7 +20,7 @@ const TableBody = props => {
                 <td>{linha.nome}</td>
                 <td>{linha.livro}</td>
                 <td>{linha.preco}</td>
-                <td><button onClick={()=> {props.removeAutor(index)}}>Remover</button></td>
+                <td><button onClick={()=> {props.removeAutor(index)}}className="waves-effect waves-light btn-small red accent-4" >Remover</button></td>
             </tr>
         );
     })
@@ -37,7 +37,7 @@ class Tabela extends Component {
     render() {
         const { autores, removeAutor } = this.props;
         return (
-            <table>
+            <table className="centered">
 
                 <TableHead />
                 <TableBody autores={ autores } removeAutor = { removeAutor } />
