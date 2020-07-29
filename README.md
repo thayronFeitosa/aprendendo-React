@@ -1,3 +1,9 @@
+## First steps
+Install the create-react-app using the command: <strong>`npm install create-react-app`.</strong><br />
+Create the project by running the command: <strong>`npx create-react-app nome do projeto`</strong>
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
