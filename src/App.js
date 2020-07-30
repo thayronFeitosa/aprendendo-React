@@ -3,6 +3,7 @@ import 'materialize-css/dist/css/materialize.min.css'
 import Tabela from './Tabela';
 import Formulario from './Formulario';
 import Header from './Header';
+import PopUp from './PopUp';
 
 
 class App extends Component {
@@ -42,10 +43,13 @@ class App extends Component {
       }),
     })
 
+    PopUp.exibeMensagem('error', 'Autor removido')
+
   }
 
   escutadorDeSubmit = autor => {
     this.setState({ autores: [...this.state.autores, autor] });
+    PopUp.exibeMensagem('success', 'Autor adicionado com sucesso')
   }
   render() {
     return (
