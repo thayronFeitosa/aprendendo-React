@@ -1,15 +1,13 @@
 import React, { Component, Fragment } from 'react';
-import './App.css';
-import Header from './Header';
-import Tabela from './tabelas';
 import 'materialize-css/dist/css/materialize.min.css'
+import Tabela from './Tabela';
+import Formulario from './Formulario';
+import Header from './Header';
 
-import Form from './Formulario';
 
 class App extends Component {
 
   state = {
-
     autores: [
       {
         nome: 'Paulo',
@@ -17,7 +15,7 @@ class App extends Component {
         preco: '1000'
       },
       {
-        nome: 'Danel',
+        nome: 'Daniel',
         livro: 'Java',
         preco: '99'
       },
@@ -30,36 +28,33 @@ class App extends Component {
         nome: 'Bruno',
         livro: 'DevOps',
         preco: '100'
-      }, {
-        nome: 'thayron',
-        livro: 'Est. de dados',
-        preco: '50'
       }
     ],
-  };
+  }
 
   removeAutor = index => {
+
     const { autores } = this.state;
-    this.setState(
-      {
-        autores: autores.filter((autor, posAtual) => {
-          return posAtual !== index;
-        }),
-      }
-    )
+
+    this.setState({
+      autores: autores.filter((autor, posAtual) => {
+        return posAtual !== index;
+      }),
+    })
+
   }
 
-  escutadorDeSubmite = autor =>{
-    this.setState({autores:[...this.state.autores, autor]})
+  escutadorDeSubmit = autor => {
+    this.setState({ autores: [...this.state.autores, autor] });
   }
-
   render() {
     return (
       <Fragment>
         <Header />
-        <div className="container">
-        <Tabela autores={this.state.autores} removeAutor={this.removeAutor} />
-        <Form escutadorDeSubmite={this.escutadorDeSubmite}/>
+        <div className="container mb-10">
+          <h1>Casa do código</h1>
+          <Tabela autores={this.state.autores} removeAutor={this.removeAutor} />
+          <Formulario escutadorDeSubmit={this.escutadorDeSubmit} />
         </div>
       </Fragment>
     );
